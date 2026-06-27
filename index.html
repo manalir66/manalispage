@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Manali Roy, Ph.D. — Academic Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink:       #1c1c1c;
+    --ink-mid:   #3a3a3a;
+    --ink-light: #6e6e6e;
+    --paper:     #f2f2f0;
+    --white:     #fafaf9;
+    --accent:    #4a4a4a;
+    --accent-2:  #888880;
+    --rule:      #d8d8d4;
+    --tag-bg:    #e8e8e4;
+    --sidebar-w: 280px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── LAYOUT ── */
+  .shell {
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+    min-height: 100vh;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--ink);
+    color: #c0c0bc;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem 2rem;
+  }
+
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-thumb { background: #3a3a3a; border-radius: 2px; }
+
+  .avatar-wrap {
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: #fff;
+    margin-bottom: 1.2rem;
+    flex-shrink: 0;
+    position: relative;
+  }
+  .avatar-wrap::after {
+    content: '';
+    position: absolute; inset: -3px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-2);
+    opacity: 0.6;
+  }
+
+  .sidebar-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    color: #fff;
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+  }
+  .sidebar-role {
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-2);
+    margin-bottom: 0.2rem;
+  }
+  .sidebar-inst {
+    font-size: 0.78rem;
+    color: #888880;
+    margin-bottom: 1.2rem;
+    line-height: 1.4;
+  }
+
+  .interest-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.4rem; }
+  .interest-tags span {
+    font-size: 0.68rem;
+    padding: 0.18rem 0.5rem;
+    border-radius: 20px;
+    background: #ffffff10;
+    color: #aaa9a0;
+    border: 1px solid #ffffff18;
+    font-weight: 500;
+  }
+
+  .s-divider { height: 1px; background: #ffffff14; margin: 1rem 0; }
+
+  .sidebar-nav { display: flex; flex-direction: column; gap: 0.1rem; }
+  .sidebar-nav a {
+    display: flex; align-items: center; gap: 0.7rem;
+    text-decoration: none;
+    color: #888880;
+    font-size: 0.82rem;
+    font-weight: 500;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    transition: background 0.18s, color 0.18s;
+  }
+  .sidebar-nav a:hover, .sidebar-nav a.active {
+    background: #ffffff12; color: #fff;
+  }
+  .nav-icon { font-size: 0.9em; width: 1.2em; text-align: center; flex-shrink: 0; }
+
+  .social-links {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .social-links a {
+    display: flex; align-items: center; gap: 0.6rem;
+    text-decoration: none;
+    color: #888880;
+    font-size: 0.78rem;
+    transition: color 0.18s;
+  }
+  .social-links a:hover { color: #fff; }
+  .s-label { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; }
+
+  /* ── MAIN ── */
+  .main { padding: 3rem 3.5rem 4rem; max-width: 860px; }
+
+  .section { margin-bottom: 3.5rem; }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    display: flex; align-items: center; gap: 0.7rem;
+    margin-bottom: 1.2rem;
+  }
+  .section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--rule);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 0 0 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 3rem;
+  }
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--accent-2);
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    line-height: 1.15;
+    color: var(--ink);
+    font-weight: 400;
+    margin-bottom: 1.1rem;
+  }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero-bio {
+    font-size: 0.95rem;
+    color: var(--ink-mid);
+    max-width: 640px;
+    line-height: 1.8;
+  }
+  .hero-bio strong { color: var(--ink); font-weight: 600; }
+
+  /* ── STATS ── */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 3.5rem;
+  }
+  .stat-box {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 1.2rem 1rem;
+    text-align: center;
+  }
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: 500;
+  }
+
+  /* ── RESEARCH CARDS ── */
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .highlight-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 1.4rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .highlight-card:hover {
+    box-shadow: 0 4px 20px rgba(60,60,60,0.10);
+    border-color: #b0b0aa;
+  }
+  .highlight-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 100%;
+    background: var(--accent);
+    border-radius: 10px 0 0 10px;
+  }
+  .highlight-card:nth-child(2)::before,
+  .highlight-card:nth-child(4)::before { background: var(--accent-2); }
+  .hc-title {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  .hc-body { font-size: 0.82rem; color: var(--ink-light); line-height: 1.6; }
+  .hc-tag {
+    display: inline-block;
+    margin-top: 0.8rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    background: var(--tag-bg);
+    color: var(--accent);
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+  }
+
+  /* ── PUBLICATIONS ── */
+  .pub-list { display: flex; flex-direction: column; }
+  .pub-item {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 0 1.2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-light);
+    padding-top: 0.22rem;
+    text-align: right;
+  }
+  .pub-title { font-size: 0.88rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; line-height: 1.5; }
+  .pub-journal { font-size: 0.8rem; color: var(--ink-light); }
+  .pub-journal em { font-style: italic; color: var(--accent); }
+  .pub-tags { display: flex; gap: 0.4rem; margin-top: 0.5rem; flex-wrap: wrap; }
+  .tag {
+    font-size: 0.67rem;
+    padding: 0.15rem 0.5rem;
+    background: var(--tag-bg);
+    color: var(--accent);
+    border-radius: 4px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+  .tag-conf { background: #e0e0dc; color: #3a3a3a; }
+
+  /* pub sub-sections */
+  .pub-section-head {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--ink-light);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.6rem 0 0.4rem;
+    margin-top: 0.4rem;
+    border-top: 1px dashed var(--rule);
+  }
+  .pub-section-head:first-child { border-top: none; margin-top: 0; }
+
+  /* ── EXPERIENCE ── */
+  .exp-list { display: flex; flex-direction: column; gap: 1.6rem; }
+  .exp-item {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 1.4rem 1.6rem;
+  }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.5rem; }
+  .exp-title { font-size: 0.92rem; font-weight: 600; color: var(--ink); }
+  .exp-place { font-size: 0.82rem; color: var(--ink-mid); margin-bottom: 0.3rem; }
+  .exp-date {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--ink-light);
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-top: 0.2rem;
+  }
+  .exp-bullets { padding-left: 1rem; }
+  .exp-bullets li { font-size: 0.82rem; color: var(--ink-mid); margin-bottom: 0.3rem; line-height: 1.6; }
+
+  /* ── AWARDS ── */
+  .award-list { display: flex; flex-direction: column; gap: 0; }
+  .award-item {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0 1.2rem;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--rule);
+    align-items: start;
+  }
+  .award-item:last-child { border-bottom: none; }
+  .award-year {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-light);
+    padding-top: 0.2rem;
+  }
+  .award-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+  .award-detail { font-size: 0.8rem; color: var(--ink-light); line-height: 1.5; margin-top: 0.1rem; }
+
+  /* ── SKILLS ── */
+  .skills-group { margin-bottom: 1.2rem; }
+  .skills-group-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-light);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
+  .skills-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .skill-pill {
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--rule);
+    border-radius: 99px;
+    font-size: 0.8rem;
+    color: var(--ink-mid);
+    background: var(--white);
+    transition: all 0.15s;
+  }
+  .skill-pill:hover { border-color: var(--accent); color: var(--accent); background: var(--tag-bg); }
+
+  /* ── CONTACT ── */
+  .contact-links { display: flex; flex-direction: column; gap: 0.7rem; max-width: 480px; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.9rem;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--ink-mid);
+    background: var(--white);
+    font-size: 0.85rem;
+    transition: all 0.2s;
+  }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); background: var(--tag-bg); }
+
+  /* ── FOOTER ── */
+  .footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ── MOBILE ── */
+  .mobile-nav-toggle {
+    display: none;
+    position: fixed; top: 1rem; right: 1rem; z-index: 200;
+    background: var(--ink); color: #fff;
+    border: none; border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    font-size: 1.1rem; cursor: pointer;
+  }
+
+  @media (max-width: 780px) {
+    .shell { grid-template-columns: 1fr; }
+    .sidebar {
+      position: fixed; left: -100%; top: 0; width: 260px; height: 100vh; z-index: 100;
+      transition: left 0.3s;
+    }
+    .sidebar.open { left: 0; }
+    .mobile-nav-toggle { display: block; }
+    .main { padding: 2rem 1.2rem 3rem; max-width: 100%; }
+    .highlight-grid { grid-template-columns: 1fr; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .hero h1 { font-size: 1.8rem; }
+    .exp-header { flex-direction: column; gap: 0.2rem; }
+  }
+</style>
+</head>
+<body>
+
+<button class="mobile-nav-toggle" onclick="document.querySelector('.sidebar').classList.toggle('open')">☰</button>
+
+<div class="shell">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="avatar-wrap">MR</div>
+    <div class="sidebar-name">Manali Roy, Ph.D.</div>
+    <div class="sidebar-role">Postdoctoral Research Scientist</div>
+    <div class="sidebar-inst">School of Medical Science &amp; Technology<br>IIT Kharagpur</div>
+
+    <div class="interest-tags">
+      <span>Image Fusion</span>
+      <span>Medical Imaging</span>
+      <span>Pattern Recognition</span>
+      <span>Glaucoma Detection</span>
+      <span>Morphology</span>
+      <span>Deep Learning</span>
+    </div>
+
+    <div class="s-divider"></div>
+
+    <nav class="sidebar-nav">
+      <a href="#about" class="active"><span class="nav-icon">◈</span> About</a>
+      <a href="#research"><span class="nav-icon">◇</span> Research</a>
+      <a href="#publications"><span class="nav-icon">◉</span> Publications</a>
+      <a href="#experience"><span class="nav-icon">◎</span> Experience</a>
+      <a href="#awards"><span class="nav-icon">◆</span> Awards</a>
+      <a href="#skills"><span class="nav-icon">◐</span> Skills</a>
+      <a href="#contact"><span class="nav-icon">✉</span> Contact</a>
+    </nav>
+
+    <div class="social-links">
+      <a href="mailto:manalir66@gmail.com">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+        <span class="s-label">manalir66@gmail.com</span>
+      </a>
+      <a href="https://www.linkedin.com/in/roymanali66/" target="_blank">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        <span class="s-label">LinkedIn</span>
+      </a>
+      <a href="#">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        <span class="s-label">Download CV</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO -->
+    <section id="about" class="hero">
+      <div class="hero-eyebrow">Postdoc · IIT Kharagpur · Medical Science &amp; Technology</div>
+      <h1>Image fusion &amp; <em>multimodal analysis</em><br>for low-resource clinical settings</h1>
+      <p class="hero-bio">
+        I am a <strong>Postdoctoral Research Scientist</strong> at the School of Medical Science and Technology,
+        <strong>IIT Kharagpur</strong>, leading the ICMR-funded Grand Challenge project on
+        multimodal fusion of Tear Fern patterns and Fundus imaging for glaucoma detection.
+        My doctoral work at <strong>IIT(ISM) Dhanbad</strong> developed classical image fusion algorithms
+        in spatial and transform domains — covering multi-focus, infrared-visible, and low-light imaging.
+        I work at the intersection of morphological signal processing, sparse representation,
+        and applied machine learning, with a focus on interpretable and computationally efficient methods.
+      </p>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-number">9</div>
+        <div class="stat-label">Publications</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">6+</div>
+        <div class="stat-label">Years Research</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">2</div>
+        <div class="stat-label">Awards</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-number">1</div>
+        <div class="stat-label">ICMR Grant</div>
+      </div>
+    </div>
+
+    <!-- RESEARCH -->
+    <section id="research" class="section">
+      <div class="section-label">Research Focus</div>
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <div class="hc-title">Multimodal Glaucoma Detection in Low-resource Settings</div>
+          <div class="hc-body">
+            Leading an ICMR-funded Grand Challenge integrating Tear Fern crystallography patterns
+            with Fundus imaging. Involves field data collection from rural communities,
+            multimodal dataset curation, and device prototyping.
+          </div>
+          <div class="hc-tag">Medical Imaging · Multimodal Fusion</div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-title">Image Fusion in Spatial &amp; Transform Domains</div>
+          <div class="hc-body">
+            Developed DCT-based multiscale frameworks and morphological differential features
+            for greyscale and colour image fusion. Covers wavelet morphology, toggle-contrast
+            edge features, and vision-inspired IR-visible fusion.
+          </div>
+          <div class="hc-tag">DCT · Morphology · Wavelet</div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-title">Multi-focus &amp; Colour Image Fusion</div>
+          <div class="hc-body">
+            Designed edge-based fusion schemes using morphological toggle-gradient and guided filters.
+            Extended to DTT-moment reorganisation and sparse representation for challenging
+            multi-focus scenarios.
+          </div>
+          <div class="hc-tag">Sparse Representation · Guided Filter</div>
+        </div>
+        <div class="highlight-card">
+          <div class="hc-title">Low-light Image Enhancement</div>
+          <div class="hc-body">
+            PSO-based gamma correction with image classification feedback and multi-scale
+            pyramidal fusion for correcting low-illumination scenes — enabling downstream
+            vision tasks in degraded conditions.
+          </div>
+          <div class="hc-tag">PSO · Gamma Correction · Multi-scale</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="section">
+      <div class="section-label">Publications</div>
+
+      <div class="pub-list">
+        <div class="pub-section-head">Journal Articles</div>
+
+        <div class="pub-item">
+          <span class="pub-num">J3</span>
+          <div>
+            <div class="pub-title">IR-Visible Fusion Framework for Low-contrast Images Using Wavelet Morphology and Vision-Inspired Model</div>
+            <div class="pub-journal">M. Roy &amp; S. Mukhopadhyay · <em>Infrared Physics and Technology</em>, 2026</div>
+            <div class="pub-tags"><span class="tag">First Author</span><span class="tag">Journal</span></div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">J2</span>
+          <div>
+            <div class="pub-title">A DCT-based Multiscale Framework for 2D Greyscale Image Fusion Using Morphological Differential Features</div>
+            <div class="pub-journal">M. Roy &amp; S. Mukhopadhyay · <em>The Visual Computer</em>, pp. 1–22, 2023</div>
+            <div class="pub-tags"><span class="tag">First Author</span><span class="tag">Journal</span></div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">J1</span>
+          <div>
+            <div class="pub-title">A Scheme for Edge-based Multi-focus Color Image Fusion</div>
+            <div class="pub-journal">M. Roy &amp; S. Mukhopadhyay · <em>Multimedia Tools and Applications</em>, vol. 79, pp. 24089–24117, 2020</div>
+            <div class="pub-tags"><span class="tag">First Author</span><span class="tag">Journal</span></div>
+          </div>
+        </div>
+
+        <div class="pub-section-head">Conference Proceedings</div>
+
+        <div class="pub-item">
+          <span class="pub-num">C6</span>
+          <div>
+            <div class="pub-title">Infrared and Visible Image Fusion Using Morphological Reconstruction Filters and Refined Toggle-Contrast Edge Features</div>
+            <div class="pub-journal">M. Roy &amp; S. Mukhopadhyay · <em>CVMI-2022</em>, Allahabad, India, 2023, pp. 641–654</div>
+            <div class="pub-tags"><span class="tag tag-conf">Conference</span><span class="tag" style="background:#e8e8e4;color:#1c1c1c;font-weight:600;">IAPR Best Paper</span></div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">C5</span>
+          <div>
+            <div class="pub-title">Multi-focus Image Fusion Using Reorganized DTT Moments and Sparse Representation</div>
+            <div class="pub-journal">M. Roy &amp; S. Mukhopadhyay · <em>PREMI-2023</em>, Kolkata, India, pp. 431–440</div>
+            <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">C4</span>
+          <div>
+            <div class="pub-title">Multi-focus Image Fusion Using Morphological Toggle-Gradient and Guided Filter</div>
+            <div class="pub-journal">M. Roy &amp; S. Mukhopadhyay · <em>ICIPCN-2022</em>, Bangkok, Thailand, pp. 105–118</div>
+            <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">C3</span>
+          <div>
+            <div class="pub-title">Multi-focus Fusion Using Image Matting and Geometric Mean of DCT-Variance</div>
+            <div class="pub-journal">M. Roy &amp; S. Mukhopadhyay · <em>CVIP-2020</em>, Prayagraj, India, pp. 212–223</div>
+            <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">C2</span>
+          <div>
+            <div class="pub-title">Correcting Low Illumination Images Using PSO-based Gamma Correction and Image Classifying Method</div>
+            <div class="pub-journal">S. Das, M. Roy &amp; S. Mukhopadhyay · <em>CVIP-2020</em>, Prayagraj, India, pp. 433–444</div>
+            <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
+          </div>
+        </div>
+
+        <div class="pub-item">
+          <span class="pub-num">C1</span>
+          <div>
+            <div class="pub-title">Correcting Low-illumination Images Using Multi-scale Fusion in a Pyramidal Framework</div>
+            <div class="pub-journal">S. Das, M. Roy &amp; S. Mukhopadhyay · <em>WISPNET-2020</em>, Chennai, India, pp. 126–129</div>
+            <div class="pub-tags"><span class="tag tag-conf">Conference</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="section-label">Experience</div>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Postdoctoral Research Scientist</div>
+              <div class="exp-place">School of Medical Science &amp; Technology, IIT Kharagpur</div>
+            </div>
+            <div class="exp-date">Aug 2024 – Present</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Leading execution of ICMR-funded Grand Challenge: multimodal fusion of Tear Fern patterns and Fundus imaging for glaucoma detection in low-resource settings.</li>
+            <li>Coordinating end-to-end field data collection from rural communities; managing multimodal datasets with protocol compliance and ethical oversight.</li>
+            <li>Supervising a research team of a research assistant and student interns; mentoring B.Tech and M.Tech students.</li>
+            <li>Drafting research manuscripts, patent applications, project proposals, and technical documentation. Gained experience in medical device prototyping.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Teaching Assistant</div>
+              <div class="exp-place">IIT (ISM), Dhanbad</div>
+            </div>
+            <div class="exp-date">Aug 2017 – Dec 2023</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Conducted theory and laboratory sessions for UG and PG students across courses in C Programming, Image &amp; Video Processing, Cryptography, OOP (C++/Python), and Wireless Computing.</li>
+            <li>Developed instructional materials, assessment tests, and mentored multiple postgraduate dissertations.</li>
+          </ul>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Trainee Software Engineer</div>
+              <div class="exp-place">UST Global, Trivandrum</div>
+            </div>
+            <div class="exp-date">May 2015 – Jul 2015</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section id="awards" class="section">
+      <div class="section-label">Awards &amp; Achievements</div>
+      <div class="award-list">
+        <div class="award-item">
+          <span class="award-year">2023</span>
+          <div>
+            <div class="award-name">IAPR Best Paper Award — Student Category</div>
+            <div class="award-detail">CVMI-2023, for "Infrared and Visible Image Fusion Using Morphological Reconstruction Filters and Refined Toggle-Contrast Edge Features"</div>
+          </div>
+        </div>
+        <div class="award-item">
+          <span class="award-year">2017–2022</span>
+          <div>
+            <div class="award-name">MHRD PhD Fellowship</div>
+            <div class="award-detail">Ministry of Human Resource Development fellowship for doctoral studies at IIT(ISM) Dhanbad</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="section-label">Skills &amp; Tools</div>
+
+      <div class="skills-group">
+        <div class="skills-group-label">Programming &amp; Computing</div>
+        <div class="skills-row">
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">MATLAB</span>
+          <span class="skill-pill">C / C++</span>
+          <span class="skill-pill">Java (J2SE, J2EE)</span>
+          <span class="skill-pill">SQL</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="skills-group-label">Research &amp; Methods</div>
+        <div class="skills-row">
+          <span class="skill-pill">Image Fusion</span>
+          <span class="skill-pill">Morphological Processing</span>
+          <span class="skill-pill">DCT / Wavelet Analysis</span>
+          <span class="skill-pill">Sparse Representation</span>
+          <span class="skill-pill">Machine Learning</span>
+          <span class="skill-pill">Deep Learning</span>
+          <span class="skill-pill">Pattern Recognition</span>
+          <span class="skill-pill">Medical Image Analysis</span>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <div class="skills-group-label">Scholarly &amp; Tools</div>
+        <div class="skills-row">
+          <span class="skill-pill">LaTeX</span>
+          <span class="skill-pill">Technical Writing</span>
+          <span class="skill-pill">Academic Research</span>
+          <span class="skill-pill">Grant Writing</span>
+          <span class="skill-pill">Mentorship</span>
+          <span class="skill-pill">Microsoft Office</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-label">Contact</div>
+      <div class="contact-links">
+        <a href="mailto:manalir66@gmail.com" class="contact-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          manalir66@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/roymanali66/" target="_blank" class="contact-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/roymanali66
+        </a>
+        <a href="#" class="contact-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Google Scholar Profile
+        </a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      © 2026 Manali Roy, Ph.D. · IIT Kharagpur
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const sidebar = document.querySelector('.sidebar');
+    const toggle  = document.querySelector('.mobile-nav-toggle');
+    if (sidebar.classList.contains('open') && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+      sidebar.classList.remove('open');
+    }
+  });
+
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks  = document.querySelectorAll('.sidebar-nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
