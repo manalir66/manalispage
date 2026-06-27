@@ -175,23 +175,15 @@
     text-transform: uppercase;
     margin-bottom: 0.8rem;
   }
-  /* .hero h1 {
+  .hero h1 {
     font-family: 'DM Serif Display', serif;
-    font-size: 2.4rem;
-    line-height: 1.15;
+    font-size: 1.6rem;
+    line-height: 1.35;
     color: var(--ink);
     font-weight: 400;
     margin-bottom: 1.1rem;
-  } */
-  .hero h1 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.6rem;
-  line-height: 1.35;
-  color: var(--ink);
-  font-weight: 400;
-  margin-bottom: 1.1rem;
-  max-width: 700px;
-}
+    max-width: 700px;
+  }
   .hero h1 em { font-style: italic; color: var(--accent); }
   .hero-bio {
     font-size: 0.95rem;
@@ -310,7 +302,6 @@
   }
   .tag-conf { background: #e0e0dc; color: #3a3a3a; }
 
-  /* pub sub-sections */
   .pub-section-head {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
@@ -324,7 +315,7 @@
   }
   .pub-section-head:first-child { border-top: none; margin-top: 0; }
 
-  /* ── EXPERIENCE ── */
+  /* ── EXPERIENCE & EDUCATION (shared) ── */
   .exp-list { display: flex; flex-direction: column; gap: 1.6rem; }
   .exp-item {
     background: var(--white);
@@ -434,7 +425,7 @@
     .main { padding: 2rem 1.2rem 3rem; max-width: 100%; }
     .highlight-grid { grid-template-columns: 1fr; }
     .stats-row { grid-template-columns: 1fr 1fr; }
-    .hero h1 { font-size: 1.8rem; }
+    .hero h1 { font-size: 1.2rem; white-space: normal; }
     .exp-header { flex-direction: column; gap: 0.2rem; }
   }
 </style>
@@ -492,15 +483,16 @@
 
   <!-- MAIN -->
   <main class="main">
+
     <!-- HERO -->
     <section id="about" class="hero">
       <div class="hero-eyebrow">Postdoc · IIT Kharagpur · Medical Science &amp; Technology</div>
-      <h1>Fusing Signals, Informing Sight: <br><em> Research in Image Processing and Medical Vision</h1>
+      <h1>Fusing Signals, Informing Sight:<br><em>Research in Image Processing and Medical Vision</em></h1>
       <p class="hero-bio">
         I am a <strong>Postdoctoral Research Scientist</strong> at the School of Medical Science and Technology,
-        <strong>IIT Kharagpur</strong>, currently leading the ICMR-funded First-in-World Grand Challenge research project titled, 
-        "Multimodal fusion of Tear Fern patterns and Fundus imaging for glaucoma detection in Low resource settings".
-        My doctoral work at <strong>IIT(ISM) Dhanbad</strong> was on developing classical image fusion algorithms
+        <strong>IIT Kharagpur</strong>, currently leading the ICMR-funded First-in-World Grand Challenge project titled
+        "Multimodal Fusion of Tear Fern Patterns and Fundus Imaging for Glaucoma Detection in Low-resource Settings."
+        My doctoral work at <strong>IIT(ISM) Dhanbad</strong> focused on developing classical image fusion algorithms
         in spatial and transform domains — covering multi-focus, infrared-visible, and low-light imaging.
         I work at the intersection of morphological image and signal processing, sparse representation,
         and applied machine learning, with a focus on interpretable and computationally efficient methods.
@@ -521,6 +513,10 @@
         <div class="stat-number">2</div>
         <div class="stat-label">Awards</div>
       </div>
+      <div class="stat-box">
+        <div class="stat-number">1</div>
+        <div class="stat-label">ICMR Grant</div>
+      </div>
     </div>
 
     <!-- RESEARCH -->
@@ -539,7 +535,7 @@
         <div class="highlight-card">
           <div class="hc-title">Image Fusion in Spatial &amp; Transform Domains</div>
           <div class="hc-body">
-            Developed DCT-based multiscale framework using morphological differential features
+            Developed DCT-based multiscale frameworks and morphological differential features
             for greyscale and colour image fusion. Covers wavelet morphology, toggle-contrast
             edge features, and vision-inspired IR-visible fusion.
           </div>
@@ -569,7 +565,6 @@
     <!-- PUBLICATIONS -->
     <section id="publications" class="section">
       <div class="section-label">Publications</div>
-
       <div class="pub-list">
         <div class="pub-section-head">Journal Articles</div>
 
@@ -607,7 +602,7 @@
           <div>
             <div class="pub-title">Infrared and Visible Image Fusion Using Morphological Reconstruction Filters and Refined Toggle-Contrast Edge Features</div>
             <div class="pub-journal">M. Roy &amp; S. Mukhopadhyay · <em>CVMI-2022</em>, Allahabad, India, 2023, pp. 641–654</div>
-            <div class="pub-tags"><span class="tag tag-conf">Conference</span><span class="tag" style="background:#e8e8e4;color:#1c1c1c;font-weight:600;">IAPR Best Paper(Student Category)</span></div>
+            <div class="pub-tags"><span class="tag tag-conf">Conference</span><span class="tag" style="background:#e8e8e4;color:#1c1c1c;font-weight:600;">IAPR Best Paper</span></div>
           </div>
         </div>
 
@@ -673,7 +668,7 @@
             <div class="exp-date">Aug 2024 – Present</div>
           </div>
           <ul class="exp-bullets">
-            <li>Leading execution of ICMR-funded Grand Challenge: Multimodal fusion of Tear Fern patterns and Fundus imaging for glaucoma detection in low-resource settings.</li>
+            <li>Leading execution of ICMR-funded Grand Challenge: multimodal fusion of Tear Fern patterns and Fundus imaging for glaucoma detection in low-resource settings.</li>
             <li>Coordinating end-to-end field data collection from rural communities; managing multimodal datasets with protocol compliance and ethical oversight.</li>
             <li>Supervising a research team of a research assistant and student interns; mentoring B.Tech and M.Tech students.</li>
             <li>Drafting research manuscripts, patent applications, project proposals, and technical documentation. Gained experience in medical device prototyping.</li>
@@ -706,52 +701,54 @@
 
       </div>
     </section>
+
     <!-- EDUCATION -->
-<section id="education" class="section">
-  <div class="section-label">Education</div>
-  <div class="exp-list">
+    <section id="education" class="section">
+      <div class="section-label">Education</div>
+      <div class="exp-list">
 
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">Ph.D. in Computer Science and Engineering</div>
-          <div class="exp-place">IIT (ISM), Dhanbad</div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">Ph.D. in Computer Science and Engineering</div>
+              <div class="exp-place">IIT (ISM), Dhanbad</div>
+            </div>
+            <div class="exp-date">Aug 2017 – Jan 2024</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Thesis: <em>Development of Image Fusion Algorithms in Spatial and Transform Domains</em></li>
+          </ul>
         </div>
-        <div class="exp-date">Aug 2017 – Jan 2024</div>
-      </div>
-      <ul class="exp-bullets">
-        <li>Thesis: <em>Development of Image Fusion Algorithms in Spatial and Transform Domains</em></li>
-      </ul>
-    </div>
 
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">M.Tech. in Computer Science and Engineering</div>
-          <div class="exp-place">IIT (ISM), Dhanbad &nbsp;·&nbsp; CGPA: 9.28/10</div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">M.Tech. in Computer Science and Engineering</div>
+              <div class="exp-place">IIT (ISM), Dhanbad &nbsp;·&nbsp; CGPA: 9.28 / 10</div>
+            </div>
+            <div class="exp-date">Jul 2015 – May 2017</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Thesis: <em>Multifocus Colour Image Fusion Using Morphology and Edge Detection</em></li>
+          </ul>
         </div>
-        <div class="exp-date">Jul 2015 – May 2017</div>
-      </div>
-      <ul class="exp-bullets">
-        <li>Thesis: <em>Multifocus Colour Image Fusion Using Morphology and Edge Detection</em></li>
-      </ul>
-    </div>
 
-    <div class="exp-item">
-      <div class="exp-header">
-        <div>
-          <div class="exp-title">B.Tech. in Computer Science and Engineering</div>
-          <div class="exp-place">West Bengal University of Technology &nbsp;·&nbsp; CGPA: 8.86/10</div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-title">B.Tech. in Computer Science and Engineering</div>
+              <div class="exp-place">West Bengal University of Technology &nbsp;·&nbsp; CGPA: 8.86 / 10</div>
+            </div>
+            <div class="exp-date">Jul 2010 – May 2014</div>
+          </div>
+          <ul class="exp-bullets">
+            <li>Project: <em>License Plate Character Segmentation Using Template Matching</em></li>
+          </ul>
         </div>
-        <div class="exp-date">Jul 2010 – May 2014</div>
-      </div>
-      <ul class="exp-bullets">
-        <li>Project: <em>License Plate Character Segmentation Using Template Matching</em></li>
-      </ul>
-    </div>
 
-  </div>
-</section>
+      </div>
+    </section>
+
     <!-- AWARDS -->
     <section id="awards" class="section">
       <div class="section-label">Awards &amp; Achievements</div>
